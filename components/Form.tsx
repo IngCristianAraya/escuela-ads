@@ -30,16 +30,52 @@ export default function Form() {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    setIsSubmitting(false);
-    setSubmitted(true);
+    try {
+      // Enviar datos a Google Sheets
+      const formDataToSend = new FormData();
+      Object.entries(formData).forEach(([key, value]) => {
+        formDataToSend.append(key, String(value));
+      });
+      
+      // Reemplaza ESTA_URL con la URL de tu Web App de Google Script
+      const response = await fetch('TU_URL_DE_GOOGLE_SCRIPT_AQUI', {
+        method: 'POST',
+        body: formDataToSend,
+        mode: 'no-cors'
+      });
+      
+      // Si todo sale bien, mostrar mensaje de éxito
+      setSubmitted(true);
+      
+    } catch (error) {
+      console.error('Error al enviar el formulario:', error);
+      // Mostrar mensaje de error al usuario si es necesario
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleWhatsApp = () => {
-    const message = `¡Hola! Me interesa inscribirme en las clases de ${formData.preferencia || 'salsa y bachata'}. Mi nombre es ${formData.nombre || '[Nombre]'}.`;
-    const whatsappUrl = `https://wa.me/1234567890?text=${encodeURIComponent(message)}`;
+    const message = `¡Hola! Me interesa inscribirme en las clases de baile.
+
+*Datos del formulario:*
+👤 Nombre: ${formData.nombre || 'No especificado'}
+📱 Teléfono: ${formData.telefono || 'No especificado'}
+📧 Email: ${formData.email || 'No especificado'}
+💃 Preferencia: ${formData.preferencia || 'No especificada'}
+🏫 Modalidad: ${formData.modalidad || 'No especificada'}
+📊 Nivel: ${formData.nivel || 'No especificado'}
+⏰ Horario: ${formData.horario || 'No especificado'}
+💬 Mensaje: ${formData.mensaje || 'Sin mensaje adicional'}`;
+    
+    // Verificar si es un dispositivo móvil
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    // Si es móvil, abrir directamente en la app, si no, abrir en web.whatsapp.com
+    const whatsappUrl = isMobile 
+      ? `https://wa.me/51966320353?text=${encodeURIComponent(message)}`
+      : `https://web.whatsapp.com/send?phone=51966320353&text=${encodeURIComponent(message)}`;
+    
     window.open(whatsappUrl, '_blank');
   };
 

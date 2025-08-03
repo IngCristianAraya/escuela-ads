@@ -1,5 +1,5 @@
 import { Card, CardContent } from '@/components/ui/card';
-import { Music, Users, Clock, MapPin, Video, Trophy } from 'lucide-react';
+import { Music, Users, Clock, MapPin, Video, Coins } from 'lucide-react';
 
 export default function About() {
   const features = [
@@ -23,8 +23,8 @@ export default function About() {
     },
     {
       icon: <MapPin className="w-12 h-12 text-red-500" />,
-      title: "Clases Presenciales",
-      description: "En nuestro estudio equipado con sonido profesional y ambiente acogedor.",
+      title: "Clases Personalizadas",
+      description: "Vive una experiencia única: sesiones privadas en un estudio acústicamente diseñado, con atención exclusiva, música envolvente y el ambiente perfecto para desarrollar tu estilo propio.",
       color: "bg-red-50"
     }
   ];
@@ -67,11 +67,11 @@ export default function About() {
             </div>
             <div className="flex flex-col items-center">
               <Clock className="w-12 h-12 mb-4 text-yellow-300" />
-              <h4 className="text-xl font-bold mb-2">Turnos Flexibles</h4>
-              <p className="text-white/90">Mañanas, tardes y noches, sin compromiso de mensualidad</p>
+              <h4 className="text-xl font-bold mb-2">Horario de clases</h4>
+              <p className="text-white/90">Martes y Jueves de 8:15 AM a 09:15 PM <br /> Viernes de 07:00 PM a 08:00 PM</p>
             </div>
             <div className="flex flex-col items-center">
-              <Trophy className="w-12 h-12 mb-4 text-yellow-300" />
+              <Coins className="w-12 h-12 mb-4 text-yellow-300" />
               <h4 className="text-xl font-bold mb-2">Pago por Clase</h4>
               <p className="text-white/90">No hay mensualidad, solo paga 10 soles por clase.</p>
             </div>

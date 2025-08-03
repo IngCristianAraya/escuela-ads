@@ -53,13 +53,17 @@ export default function Hero() {
 
 
         {/* CTA Button */}
-        <div className="px-4 w-full">
+        <div className="relative w-fit mx-auto">
+          {/* Scroll indicator */}
+          <div className="absolute top-[-2rem] left-1/2 transform -translate-x-1/2 translate-y-1/2 animate-bounce">
+          <ArrowDown className="w-8 h-8 text-white/70" />
+        </div>
           <Button 
             onClick={scrollToForm}
             size="lg" 
-            className="w-full sm:w-auto bg-yellow-500 hover:bg-yellow-400 text-black font-bold text-lg sm:text-xl px-8 sm:px-12 py-5 sm:py-6 rounded-full transform hover:scale-105 transition-all duration-300 shadow-2xl mb-8 sm:mb-12"
+            className="mt-4 w-full sm:w-auto bg-yellow-500 hover:bg-yellow-400 text-black font-bold text-lg sm:text-xl px-8 sm:px-12 py-5 sm:py-6 rounded-full transform hover:scale-105 transition-all duration-300 shadow-2xl mb-8 sm:mb-12"
           >
-            ¡Inscríbeme Ahora! 🎶
+           👉🏻 ¡Inscrírbeme Ahora! 👈🏻
           </Button>
         </div>
 
@@ -83,10 +87,7 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <ArrowDown className="w-8 h-8 text-white/70" />
-        </div>
+        
       </div>
     </section>
   );
