@@ -43,7 +43,7 @@ export default function Footer() {
                 <Clock className="w-5 h-5 text-yellow-300 flex-shrink-0" />
                 <div>
                   <p className="font-semibold">Martes y Jueves</p>
-                  <p className="text-gray-300">8:15 AM - 9:15 PM</p>
+                  <p className="text-gray-300">8:15 am - 9:15 am</p>
                 </div>
               </div>
               <div className="flex items-center space-x-3">
